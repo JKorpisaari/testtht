@@ -13,8 +13,8 @@ const Ravintola = function () {
   ];
   this.jalkiruoat = ['HedelmÃ¤salaatti', 'JÃ¤Ã¤telÃ¶', 'Pulla', 'Donitsi'];
   this.juomat = ['Tee', 'Kahvi', 'Maito', 'Mehu'];
-  this.alkuRuokaHinta = 4;
-  this.paaRuokaHinta = 6;
+  this.alkuruokaHinta = 4;
+  this.paaruokaHinta = 6;
   this.jalkiruokaHinta = 4;
   this.juomaHinta = 3;
   this.paikkojenMaara = 15;
@@ -121,7 +121,7 @@ Ravintola.prototype.tilaaAteria = function (
 
   const ruoat = [];
   let ruoka;
-  
+
   if (ottaaAlkuruoan) {
     ruoka = this.palautaTaulukonSatunnainenArvo(this.alkuruoat);
     console.log('Ottaisin alkuruoaksi: ' + ruoka);
@@ -134,7 +134,7 @@ Ravintola.prototype.tilaaAteria = function (
 
   if (ottaaJalkiruoan) {
     ruoka = this.palautaTaulukonSatunnainenArvo(this.jalkiruoat);
-    console.log('Ottaisin jÃ¤kiruoaksi: ' + ruoka);
+    console.log('Ottaisin jÃ¤lkiruoaksi: ' + ruoka);
     ruoat.push(ruoka);
   }
 
@@ -162,7 +162,7 @@ Ravintola.prototype.palautaTaulukonSatunnainenArvo = function (taulukko) {
  * Laskee summan annettujen boolean parametrien mukaisesti.
  * Jos parametrit eivÃ¤t ole tyyppiÃ¤ boolean, heittÃ¤Ã¤ TypeErrorin.
  *
- * 'loppuSumma' muuttujaan lisÃ¤tÃ¤Ã¤n automaattisesti 'paaRuokaHinta', ja loput hinnat sitten parametrien mukaisesti.
+ * 'loppuSumma' muuttujaan lisÃ¤tÃ¤Ã¤n automaattisesti 'paaruokaHinta', ja loput hinnat sitten parametrien mukaisesti.
  *
  * Palauttaa lopussa 'loppuSumma'.
  *
@@ -186,10 +186,10 @@ Ravintola.prototype.laskeLasku = function (
 
   let loppuSumma = 0;
 
-  loppuSumma += this.paaRuokaHinta;
+  loppuSumma += this.paaruokaHinta;
 
   if (ottiAlkuruoan) {
-    loppuSumma += this.alkuRuokaHinta;
+    loppuSumma += this.alkuruokaHinta;
   }
 
   if (ottiJalkiruoan) {
@@ -205,4 +205,4 @@ Ravintola.prototype.laskeLasku = function (
 
 const ravintola = new Ravintola();
 
-module.exports = ravintola;
+export default ravintola;
